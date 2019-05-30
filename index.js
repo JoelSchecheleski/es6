@@ -11,7 +11,7 @@ class Message {
     if(!created || isNaN(created)){
       throw new Error('Criação inválida');
     }
-    if (this.hasOwnProperty('_created')) {
+    if (Message.prototype.hasOwnProperty.call('_created')) {
       throw new Error('Criação já definida!');
     }
 
@@ -31,8 +31,8 @@ class ImageMessage extends Message {
   }
 
   toString(){
-    return `Photo: ${super.toString() } ` +
-           `Url: ${this.url} ` +
+    return `Photo....: ${super.toString() } ` +
+           `Url......: ${this.url} ` +
            `Thumbnail: ${this.thumbnail} `
   }
 
